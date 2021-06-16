@@ -10,15 +10,15 @@ SNAPSHOT_COUNT=3
 # DATA = DIA/MES/ANO-HORA/MINUTO/SEGUNDO
 TIMESTAMP=`date +%d%m%Y-%H%M%S`
 # SELEÇÃO DO QUE SERA FEITO O BKP "executando" 
-VM_LIST=`virsh list | grep NEW | awk '{print $2}'`
+VM_LIST=`virsh list | grep executando | awk '{print $2}'`
 # LOG
 LOGFILE="/var/log/kvmbackup.log"
 
 # LOG
 echo -e "\n**********\n`date`: INICIANDO BKP DAS VMs DO SERVIDOR BASE: /\n"
 echo -e "\n**********\n`date`: INICIANDO BKP DAS VMs DO SERVIDOR BASE: `hostname`\n" >> $LOGFILE
-echo -e "VM's EXECUTNADO:\n`virsh list | grep NEW | awk '{print "*",$2}'`"
-echo -e "VM's EXECUTANDO:\n`virsh list | grep NEW | awk '{print "*",$2}'`" >> $LOGFILE
+echo -e "VM's EXECUTNADO:\n`virsh list | grep executando | awk '{print "*",$2}'`"
+echo -e "VM's EXECUTANDO:\n`virsh list | grep executando | awk '{print "*",$2}'`" >> $LOGFILE
 
 for ACTIVEVM in $VM_LIST
     do
