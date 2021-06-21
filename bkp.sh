@@ -55,7 +55,7 @@ for ACTIVEVM in $VM_LIST
 
         ### PAUSANDO VM
         #LOG
-		echo "`date`: PAUSANDO VM: $ACTIVEVM"
+	echo "`date`: PAUSANDO VM: $ACTIVEVM"
         echo "`date`: PAUSANDO VM: $ACTIVEVM" >> $LOGFILE
         virsh suspend --domain $ACTIVEVM
         sleep 2
@@ -63,7 +63,7 @@ for ACTIVEVM in $VM_LIST
 		### FAZENDO BKP
 		#LOG
 		echo "`date`: FAZENDO BPK VM: $ACTIVEVM"
-        echo "`date`: FAZENDO BKP: $ACTIVEVM" >> $LOGFILE
+        	echo "`date`: FAZENDO BKP: $ACTIVEVM" >> $LOGFILE
 		echo "`date`: CAMINHO DO ARQUIVO A FAZER BKP: `virsh domblklist $ACTIVEVM | grep $VM_POOL | awk '{print $2}'`"
 		echo "`date`: CAMINHO DO ARQUIVO A FAZER BKP: `virsh domblklist $ACTIVEVM | grep $VM_POOL | awk '{print $2}'`" >> $LOGFILE
 		VM_DATA=(`virsh domblklist $ACTIVEVM | grep $VM_POOL | awk '{print $2}'`)
